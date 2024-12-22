@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            
+            .btnm {
+                @apply py-2 text-white;
+            }
+
+            .btnm-hidden {
+                @apply w-[0px] px-0;
+                -webkit-transition: all 100ms linear;
+                -moz-transition: all 100ms linear;
+                -o-transition: all 100ms linear;
+                transition: all 100ms linear;
+            }
+
+            .btnm-shown {
+                @apply w-auto px-2;
+                -webkit-transition: all 100ms linear;
+                -moz-transition: all 100ms linear;
+                -o-transition: all 100ms linear;
+                transition: all 100ms linear;
+            }
+
+
+        }
+    </style>
+</head>
+<body x-data="App()">
+    <div class="flex items-center w-full ">
+        <button class="btnm bg-gray-500 px-2" @click="showMenu=!showMenu">Show</button>
+        <button class="btnm bg-blue-500" :class="showMenu?'btnm-shown':'btnm-hidden'">Details</button>
+        <button class="btnm bg-red-500" :class="showMenu?'btnm-shown':'btnm-hidden'">Delete</button>
+        <button class="btnm bg-violet-500" :class="showMenu?'btnm-shown':'btnm-hidden'">Download</button>
+        <div class="p-2 overflow-x-hidden whitespace-nowrap">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe quaerat id illum, quam veniam culpa hic repellendus possimus nostrum, quae, labore autem nesciunt. Itaque, debitis facere maxime tempore accusamus iusto.
+        </div>
+    </div>
+</body>
+<!-- Alpine Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js" defer></script>
+<!-- Alpine Core -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<script src="/js/index.alpine.js"></script>
+</html>
